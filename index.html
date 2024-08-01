@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ERVQ-demo</title>
+    
+    <meta name="description" content="Demo Page for ERVQ">
+    
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="css/fontawesome.all.min.css">
+    <link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+    
+    <link rel="stylesheet" href="css/fontawesome.all.min.css">
+    <link rel="stylesheet" type="text/css"  href="css/style.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">  
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'> -->
+    <script type="text/javascript" src="js/modernizr.custom.js"></script>
+
+</head>
+
+
+<body>
+  
+  <div class="container">
+
+    <div class="section-title text-center center">
+        <h1 style="color:black"><strong><br><br> ERVQ: Enhancing Residual Vector Quantization in Audio Codecs through Intra- and Inter-Codebook Optimization</b></strong></h1>
+        <br><br> 
+        <!-- <font color="black" size="4"> Author: </font>
+        <a href="https://zhengrachel.github.io/"><font color="black" size="4"><u>Rui-Chen Zheng</u></a>,
+            <a href="http://staff.ustc.edu.cn/~yangai/"><font color="black" size="4"><u>Yang Ai</u></a>, 
+            <font color="black" size="4">and </font>
+        <a href="http://staff.ustc.edu.cn/~zhling/#!index.md"><font color="black" size="4"><u>Zhen-Hua Ling</u></a> -->
+        <font color="black" size="4"> Anonymous Author(s). </font>
+    </div>
+
+    <div class="portfolio-item"> 
+        <img style="border:0px solid black;" src="img/ERVQ.png" class="img-responsive" alt="ERVQ"><br><br>
+    </div> 
+
+    <div class="row">
+      
+          <div class="col-md-10 col-md-offset-1">
+
+                <p style="color:black; font-family:Sans-Serif; font-size:16px">                         
+                    In this paper, we present <strong>ERVQ</strong>, <strong>E</strong>nhancing <strong>R</strong>esidual <strong>V</strong>ector <strong>Q</strong>uantization, 
+                    a novel enhancement strategy for residual vector quantization (RVQ) framework in audio codecs, aiming to overcome the codebook collapse issue and improve overall codec performance. 
+                    ERVQ employs both intra- and inter-codebook optimization techniques. The intra-codebook optimization introduces an online clustering strategy and a code balancing loss 
+                    to ensure balanced and effective codebook utilization. 
+                    The inter-codebook optimization enhances the diversity of quantized features by minimizing the structural similarity between successive quantizations. 
+                    Implemented with minimal code changes, ERVQ can be integrated into various audio codecs utilizing RVQ or its variants. 
+                    Our experiments demonstrate that ERVQ significantly improves audio codec performance across different models, sampling rates, and bitrates, achieving superior quality and generalization capabilities. 
+                    Further experiments indicate that audio codecs improved by the ERVQ strategy can also boost unified audio-and-text large language models (LLMs).
+                </p> <br><hr><br>
+      
+          </div>
+    </div>
+
+  </div>
+
+    <div class="inner">
+        <!-- <div class="section-title center"> -->
+    <div class="section-title text-center center">
+      <!-- <div class="col-md-20 col-md-offset--100"> -->
+
+        <br><br><br>
+        <p style="color:black; font-family:Sans-Serif; font-size:32px;"> Experimental Results: Speech Coding </p>
+
+        <br><br><br>
+        <p style="color:black; font-family:Sans-Serif; font-size:24px;"> HiFi-Codec @ 2kbps for 16kHz Audio</p>
+        
+        <br><br>
+
+        <div style="width:1600px; margin:0 auto;">
+
+            <table align="center"border=0 justify="center" cellpadding="20px" style="width: 60%">
+                <tr>
+                
+                <th style=" background-color:white;position: sticky; top: 0; width: 20%; text-align: center; padding: 10px; color:black">GroundTruth</th>
+                <th style=" background-color:white; position: sticky; top: 0;width: 20%; text-align: center; padding: 10px; color:black">Baseline</th>
+                <th style=" background-color:white; position: sticky; top: 0;width: 20%; text-align: center; padding: 10px; color:black">ERVQ</th>
+                </tr>
+
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_16k/p360_182.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/HiFi-Codec/baseline/p360_182.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/HiFi-Codec/ERVQ/p360_182.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_16k/p362_279.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/HiFi-Codec/baseline/p362_279.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/HiFi-Codec/ERVQ/p362_279.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_16k/p363_222.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/HiFi-Codec/baseline/p363_222.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/HiFi-Codec/ERVQ/p363_222.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_16k/p364_085.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/HiFi-Codec/baseline/p364_085.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/HiFi-Codec/ERVQ/p364_085.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_16k/s5_002.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/HiFi-Codec/baseline/s5_002.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/HiFi-Codec/ERVQ/s5_002.wav"></audio>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <br><br><br>
+        <p style="color:black; font-family:Sans-Serif; font-size:24px;"> DAC @ 3kbps for 24kHz Audio</p>
+        
+        <br><br>
+
+        <div style="width:1600px; margin:0 auto;">
+
+            <table align="center"border=0 justify="center" cellpadding="20px" style="width: 60%">
+                <tr>
+                
+            <th style=" background-color:white;position: sticky; top: 0; width: 20%; text-align: center; padding: 10px; color:black">GroundTruth</th>
+            <th style=" background-color:white; position: sticky; top: 0;width: 20%; text-align: center; padding: 10px; color:black">Baseline</th>
+            <th style=" background-color:white; position: sticky; top: 0;width: 20%; text-align: center; padding: 10px; color:black">ERVQ</th>
+                </tr>
+
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_24k/p360_257.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/DAC/baseline/p360_257.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/DAC/ERVQ/p360_257.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_24k/p361_046.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/DAC/baseline/p361_046.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/DAC/ERVQ/p361_046.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_24k/p363_384.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/DAC/baseline/p363_384.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/DAC/ERVQ/p363_384.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_24k/p364_100.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/DAC/baseline/p364_100.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/DAC/ERVQ/p364_100.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_24k/p374_145.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/DAC/baseline/p374_145.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/DAC/ERVQ/p374_145.wav"></audio>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <br><br><br>
+        <p style="color:black; font-family:Sans-Serif; font-size:24px;"> APCodec @ 6kbps for 48kHz Audio</p>
+        
+        <br><br>
+
+        <div style="width:1600px; margin:0 auto;">
+
+            <table align="center"border=0 justify="center" cellpadding="20px" style="width: 60%">
+                <tr>
+                
+            <th style=" background-color:white;position: sticky; top: 0; width: 20%; text-align: center; padding: 10px; color:black">GroundTruth</th>
+            <th style=" background-color:white; position: sticky; top: 0;width: 20%; text-align: center; padding: 10px; color:black">Baseline</th>
+            <th style=" background-color:white; position: sticky; top: 0;width: 20%; text-align: center; padding: 10px; color:black">ERVQ</th>
+                </tr>
+
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_48k/p360_343.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/APCodec/baseline/p360_343.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/APCodec/ERVQ/p360_343.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_48k/p361_003.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/APCodec/baseline/p361_003.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/APCodec/ERVQ/p361_003.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_48k/p362_302.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/APCodec/baseline/p362_302.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/APCodec/ERVQ/p362_302.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_48k/p363_331.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/APCodec/baseline/p363_331.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/APCodec/ERVQ/p363_331.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_48k/s5_087.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/APCodec/baseline/s5_087.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/APCodec/ERVQ/s5_087.wav"></audio>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <br><br><br>
+        <p style="color:black; font-family:Sans-Serif; font-size:24px;"> EnCodec @ 6kbps for 24kHz Audio</p>
+        
+        <br><br>
+
+        <div style="width:1600px; margin:0 auto;">
+
+            <table align="center"border=0 justify="center" cellpadding="20px" style="width: 60%">
+                <tr>
+                
+            <th style=" background-color:white;position: sticky; top: 0; width: 20%; text-align: center; padding: 10px; color:black">GroundTruth</th>
+            <th style=" background-color:white; position: sticky; top: 0;width: 20%; text-align: center; padding: 10px; color:black">Baseline</th>
+            <th style=" background-color:white; position: sticky; top: 0;width: 20%; text-align: center; padding: 10px; color:black">ERVQ</th>
+                </tr>
+
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_24k/p360_001.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/Encodec/baseline/p360_001.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/Encodec/ERVQ/p360_001.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_24k/p363_241.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/Encodec/baseline/p363_241.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/Encodec/ERVQ/p363_241.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_24k/p364_110.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/Encodec/baseline/p364_110.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/Encodec/ERVQ/p364_110.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_24k/p374_152.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/Encodec/baseline/p374_152.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/Encodec/ERVQ/p374_152.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_24k/p376_295.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/Encodec/baseline/p376_295.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/Encodec/ERVQ/p376_295.wav"></audio>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <br><br><br>
+        <p style="color:black; font-family:Sans-Serif; font-size:24px;"> APCodec_S @ 6kbps for 48kHz Audio</p>
+        
+        <br><br>
+
+        <div style="width:1600px; margin:0 auto;">
+
+            <table align="center"border=0 justify="center" cellpadding="20px" style="width: 60%">
+                <tr>
+                
+            <th style=" background-color:white;position: sticky; top: 0; width: 20%; text-align: center; padding: 10px; color:black">GroundTruth</th>
+            <th style=" background-color:white; position: sticky; top: 0;width: 20%; text-align: center; padding: 10px; color:black">Baseline</th>
+            <th style=" background-color:white; position: sticky; top: 0;width: 20%; text-align: center; padding: 10px; color:black">ERVQ</th>
+                </tr>
+
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_48k/p360_027.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/APCodec_S/baseline/p360_027.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/APCodec_S/ERVQ/p360_027.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_48k/p361_069.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/APCodec_S/baseline/p361_069.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/APCodec_S/ERVQ/p361_069.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_48k/p362_114.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/APCodec_S/baseline/p362_114.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/APCodec_S/ERVQ/p362_114.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_48k/p363_198.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/APCodec_S/baseline/p363_198.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/APCodec_S/ERVQ/p363_198.wav"></audio>
+                    </td>
+                </tr>
+
+                <tr>
+                    
+
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/GT_48k/s5_014.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                        <audio width="300" controls><source src="SpeechCoding/APCodec_S/baseline/s5_014.wav"></audio>
+                    </td>
+            
+                    <td style="width: 20%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="SpeechCoding/APCodec_S/ERVQ/s5_014.wav"></audio>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    <br><br><br>
+
+    <p style="color:black; font-family:Sans-Serif; font-size:32px;"> Experimental Results: FunCodec + LauraGPT </p>
+
+    <br><br>
+
+    <div style="width:1600px; margin:0 auto;">
+
+        <table align="center"border=0 justify="center" cellpadding="20px" style="width: 100%">
+            <tr>
+            <th style="background-color:white;position: sticky; top: 0;width: 40%; text-align: center; padding: 10px; color:black">Prompt Text</th>
+            <th style=" background-color:white;position: sticky; top: 0; width: 20%; text-align: center; padding: 10px; color:black">Prompt Audio</th>
+            <th style=" background-color:white; position: sticky; top: 0;width: 20%; text-align: center; padding: 10px; color:black">Baseline</th>
+            <th style=" background-color:white; position: sticky; top: 0;width: 20%; text-align: center; padding: 10px; color:black">ERVQ</th>
+            <!-- <th style="background-color:white;position: sticky; top: 0;width: 25%; text-align: center; padding: 10px; color:black">SVTS</th> -->
+            </tr>
+
+
+            <tr>
+                <td style="width: 18%; text-align: center; padding: 10px; color:black">
+                    <p style="color:black; font-family:Comic Sans MS; font-size:15px;">You feel that, properly, Alexandra's house is the big out of doors, and that it is in the soil that she expresses herself best.</p>
+                </td>
+
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                <audio width="300" controls><source src="FunCodecLauraGPT/prompt_audio/237_134493_000023_000002_7176_88083_000011_000000_gen.wav"></audio>
+                </td>
+        
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="FunCodecLauraGPT/baseline/237_134493_000023_000002_7176_88083_000011_000000_gen.wav"></audio>
+                </td>
+        
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                <audio width="300" controls><source src="FunCodecLauraGPT/ERVQ/237_134493_000023_000002_7176_88083_000011_000000_gen.wav"></audio>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 18%; text-align: center; padding: 10px; color:black">
+                    <p style="color:black; font-family:Comic Sans MS; font-size:15px;">When I saw that he was absent, I withdrew at once.</p>
+                </td>
+
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                <audio width="300" controls><source src="FunCodecLauraGPT/prompt_audio/1580_141083_000097_000000_6829_68769_000056_000003_gen.wav"></audio>
+                </td>
+        
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="FunCodecLauraGPT/baseline/1580_141083_000097_000000_6829_68769_000056_000003_gen.wav"></audio>
+                </td>
+        
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                <audio width="300" controls><source src="FunCodecLauraGPT/ERVQ/1580_141083_000097_000000_6829_68769_000056_000003_gen.wav"></audio>
+                </td>
+            </tr>
+
+            
+            <tr>
+                <td style="width: 18%; text-align: center; padding: 10px; color:black">
+                    <p style="color:black; font-family:Comic Sans MS; font-size:15px;">Yes; but perhaps I frightened her.</p>
+                </td>
+
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                <audio width="300" controls><source src="FunCodecLauraGPT/prompt_audio/7127_75947_000067_000000_7176_92135_000070_000002_gen.wav"></audio>
+                </td>
+        
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="FunCodecLauraGPT/baseline/7127_75947_000067_000000_7176_92135_000070_000002_gen.wav"></audio>
+                </td>
+        
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                <audio width="300" controls><source src="FunCodecLauraGPT/ERVQ/7127_75947_000067_000000_7176_92135_000070_000002_gen.wav"></audio>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 18%; text-align: center; padding: 10px; color:black">
+                    <p style="color:black; font-family:Comic Sans MS; font-size:15px;">Sir Harry Towne bowed and said that he had met Mr. Alexander and his wife in Tokyo.</p>
+                </td>
+
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                <audio width="300" controls><source src="FunCodecLauraGPT/prompt_audio/4446_2271_000016_000000_5683_32865_000027_000001_gen.wav"></audio>
+                </td>
+        
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="FunCodecLauraGPT/baseline/4446_2271_000016_000000_5683_32865_000027_000001_gen.wav"></audio>
+                </td>
+        
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                <audio width="300" controls><source src="FunCodecLauraGPT/ERVQ/4446_2271_000016_000000_5683_32865_000027_000001_gen.wav"></audio>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 18%; text-align: center; padding: 10px; color:black">
+                    <p style="color:black; font-family:Comic Sans MS; font-size:15px;">She's apt to grow a bit stale after a time.</p>
+                </td>
+
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                <audio width="300" controls><source src="FunCodecLauraGPT/prompt_audio/4446_2271_000003_000005_8230_279154_000013_000003_gen.wav"></audio>
+                </td>
+        
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="FunCodecLauraGPT/baseline/4446_2271_000003_000005_8230_279154_000013_000003_gen.wav"></audio>
+                </td>
+        
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                <audio width="300" controls><source src="FunCodecLauraGPT/ERVQ/4446_2271_000003_000005_8230_279154_000013_000003_gen.wav"></audio>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 18%; text-align: center; padding: 10px; color:black">
+                    <p style="color:black; font-family:Comic Sans MS; font-size:15px;">A stage meal is popular, because it proves to the audience that the actors, even when called Charles Hawtrey or Owen Nares, are real people just like you and me.</p>
+                </td>
+
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                <audio width="300" controls><source src="FunCodecLauraGPT/prompt_audio/7176_92135_000069_000002_4446_2275_000006_000000_gen.wav"></audio>
+                </td>
+        
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                    <audio width="300" controls><source src="FunCodecLauraGPT/baseline/7176_92135_000069_000002_4446_2275_000006_000000_gen.wav"></audio>
+                </td>
+        
+                <td style="width: 22%; text-align: center; padding: 10px; color:black">
+                <audio width="300" controls><source src="FunCodecLauraGPT/ERVQ/7176_92135_000069_000002_4446_2275_000006_000000_gen.wav"></audio>
+                </td>
+            </tr>
+            
+
+            
+        </table>
+
+    </div>
+
+</div>
+</div>
+
+
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script> 
+<script type="text/javascript" src="js/bootstrap.js"></script> 
+<script type="text/javascript" src="js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="js/nivo-lightbox.js"></script> 
+<script type="text/javascript" src="js/jquery.isotope.js"></script> 
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
+<script type="text/javascript" src="js/contact_me.js"></script> 
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
